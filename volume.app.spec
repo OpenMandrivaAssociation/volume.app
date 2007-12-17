@@ -14,7 +14,6 @@ URL:		http://www.iskunk.org/soft/volume.app/
 Requires:	XFree86-libs, xpm
 BuildRequires:	X11-devel, xpm-devel
 Prefix:		/usr/X11R6
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Volume.app is intended to be an extremely simple, efficient, and
