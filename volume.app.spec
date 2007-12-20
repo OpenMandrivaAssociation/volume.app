@@ -11,7 +11,7 @@ Group:		Sound
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-icons.tar.bz2
 URL:		http://www.iskunk.org/soft/volume.app/
-Requires:	XFree86-libs, xpm
+Requires:	xpm
 BuildRequires:	X11-devel, xpm-devel
 Prefix:		/usr/X11R6
 
