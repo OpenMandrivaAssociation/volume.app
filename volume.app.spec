@@ -48,7 +48,7 @@ cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
 Exec=%{prefix}/bin/%{name} -b
-Icon=%{name}.png
+Icon=%{name}
 Categories=Audio;
 Name=Volume knob
 Comment=Main Volume control dockapp
