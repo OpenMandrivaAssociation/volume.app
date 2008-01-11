@@ -43,11 +43,15 @@ tar xOjf %SOURCE1 %{name}-48x48.png > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 mkdir -p $RPM_BUILD_ROOT%{prefix}/bin/
 install -m 755 %{name} $RPM_BUILD_ROOT%{prefix}/bin/
 
-install -m 755 -d $RPM_BUILD_ROOT%{_menudir}
-cat << EOF > $RPM_BUILD_ROOT%{_menudir}/%{name}
-?package(%{name}):command="%{prefix}/bin/%{name} -b" icon="%{name}.png"\\
-                 needs="X11" section="Multimedia/Sound" title="Volume knob"\\
-                 longtitle="Main Volume control dockapp"
+mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
+cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
+[Desktop Entry]
+Type=Application
+Exec=%{prefix}/bin/%{name} -b
+Icon=%{name}.png
+Categories=Audio;
+Name=Volume knob
+Comment=Main Volume control dockapp
 EOF
 
 
@@ -72,5 +76,5 @@ EOF
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
-%{_menudir}/%{name}
+%{_datadir}/applications/mandriva-%{name}.desktop
 
