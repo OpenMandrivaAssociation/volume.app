@@ -1,5 +1,5 @@
 %define version 1.1
-%define release %mkrel 4
+%define release %mkrel 5
 %define name volume.app
 
 Summary:  Simple volume control for AfterStep / BlackBox / WindowMaker
