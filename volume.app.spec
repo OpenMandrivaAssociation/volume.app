@@ -1,5 +1,5 @@
 %define version 1.1
-%define release %mkrel 5
+%define release %mkrel 6
 %define name volume.app
 
 Summary:  Simple volume control for AfterStep / BlackBox / WindowMaker
@@ -12,8 +12,9 @@ Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-icons.tar.bz2
 URL:		http://www.iskunk.org/soft/volume.app/
 Requires:	xpm
-BuildRequires:	X11-devel, xpm-devel
-Prefix:		/usr/X11R6
+BuildRequires:	libx11-devel
+BuildRequires:	libxpm-devel
+BuildRequires:	libxext-devel
 BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
@@ -28,7 +29,7 @@ monitor or control more than one mixer source at a time.
 %setup -n %{name}-%{version}
 
 %build
-%make
+%make LDFLAGS="%ldflags"
      
 %install
 [ -d $RPM_BUILD_ROOT ] && rm -rf $RPM_BUILD_ROOT
@@ -40,14 +41,14 @@ tar xOjf %SOURCE1 %{name}-16x16.png > $RPM_BUILD_ROOT%{_miconsdir}/%{name}.png
 tar xOjf %SOURCE1 %{name}-32x32.png > $RPM_BUILD_ROOT%{_iconsdir}/%{name}.png
 tar xOjf %SOURCE1 %{name}-48x48.png > $RPM_BUILD_ROOT%{_liconsdir}/%{name}.png
 
-mkdir -p $RPM_BUILD_ROOT%{prefix}/bin/
-install -m 755 %{name} $RPM_BUILD_ROOT%{prefix}/bin/
+mkdir -p $RPM_BUILD_ROOT%{_bindir}
+install -m 755 %{name} $RPM_BUILD_ROOT%{_bindir}
 
 mkdir -p $RPM_BUILD_ROOT%{_datadir}/applications/
 cat << EOF > %buildroot%{_datadir}/applications/mandriva-%{name}.desktop
 [Desktop Entry]
 Type=Application
-Exec=%{prefix}/bin/%{name} -b
+Exec=%{_bindir}/%{name} -b
 Icon=%{name}
 Categories=Audio;
 Name=Volume knob
@@ -56,9 +57,7 @@ EOF
 
 
 %clean
-[ -z $RPM_BUILD_ROOT ] || {
-    rm -rf $RPM_BUILD_ROOT
-}
+rm -fr %buildroot
 
 
 %if %mdkversion < 200900
@@ -76,7 +75,7 @@ EOF
 %files
 %defattr (-,root,root)
 %doc ChangeLog AUTHORS INSTALL COPYING README TODO 
-%{prefix}/bin/*
+%{_bindir}/*
 %{_liconsdir}/%{name}.png
 %{_miconsdir}/%{name}.png
 %{_iconsdir}/%{name}.png
