@@ -81,3 +81,35 @@ rm -fr %buildroot
 %{_iconsdir}/%{name}.png
 %{_datadir}/applications/mandriva-%{name}.desktop
 
+
+
+%changelog
+* Tue Feb 01 2011 Funda Wang <fwang@mandriva.org> 1.1-6mdv2011.0
++ Revision: 634772
+- simplify BR
+
+* Thu Sep 10 2009 Thierry Vignaud <tv@mandriva.org> 1.1-5mdv2010.0
++ Revision: 436615
+- rebuild
+- rebuild
+- do not harcode icon extension
+- auto convert menu to XDG
+- kill XFree86-libs require (autoguessed)
+- kill re-definition of %%buildroot on Pixel's request
+- buildrequires X11-devel instead of XFree86-devel
+- use %%mkrel
+
+  + Pixel <pixel@mandriva.com>
+    - rpm filetriggers deprecates update_menus/update_scrollkeeper/update_mime_database/update_icon_cache/update_desktop_database/post_install_gconf_schemas
+
+  + Olivier Blin <oblin@mandriva.com>
+    - restore BuildRoot
+
+
+* Thu Jun 06 2002 Olivier Thauvin <thauvin@aerov.jussieu.fr> 1.1-2mdk
+- png icons (out xpm!)
+- s/Copyrigth/License/
+
+* Sat Jun 02 2001 HA Quôc-Viêt <viet@mandrakesoft.com> 1.1-1mdk
+- Initial packaging.
+
