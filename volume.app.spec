@@ -1,5 +1,5 @@
 %define version 1.1
-%define release %mkrel 6
+%define release  7
 %define name volume.app
 
 Summary:  Simple volume control for AfterStep / BlackBox / WindowMaker
@@ -15,7 +15,6 @@ Requires:	xpm
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	pkgconfig(xext)
-BuildRoot:	%{_tmppath}/%{name}-buildroot
 
 %description
 Volume.app is intended to be an extremely simple, efficient, and
