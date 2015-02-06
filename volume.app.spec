@@ -1,5 +1,5 @@
 %define version 1.1
-%define release  7
+%define release  8
 %define name volume.app
 
 Summary:  Simple volume control for AfterStep / BlackBox / WindowMaker
