@@ -10,7 +10,7 @@ License:	GPL
 Group:		Sound
 Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-icons.tar.bz2
-URL:		http://www.iskunk.org/soft/volume.app/
+URL:		https://www.iskunk.org/soft/volume.app/
 Requires:	xpm
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
