@@ -12,6 +12,7 @@ Source0:	%{name}-%{version}.tar.bz2
 Source1:	%{name}-icons.tar.bz2
 URL:		https://www.iskunk.org/soft/volume.app/
 Requires:	xpm
+BuildRequires:	make
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xpm)
 BuildRequires:	pkgconfig(xext)
